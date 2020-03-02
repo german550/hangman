@@ -18,11 +18,19 @@ function App() {
   // var s = "overpopulation";
   // console.log(s[3]);
 
-  const palabra = "orange"
+  const palabra = "apple"
+  let length = palabra.length
+  let secret = palabra.split("");
+  const blanks = secret.map(
+    (letter, i) => <Blank key={i} secret={letter} showMe={false} />
+  )
+
   return (
     <div className="App">
       <h1 className="hi"></h1>
-      <Blank secret={"O"} showMe={true}/>
+      <div className="blank-list">
+        {blanks}
+      </div>
 
     </div>
   );
