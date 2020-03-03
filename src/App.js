@@ -1,15 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Blank from "./Blank"
 
+function randomTheme(obj) {
+    var keys = Object.keys(obj)
+    return obj[keys[ keys.length * Math.random() << 0]];
+};
+
+function getKey(object, value) {
+            for (var prop in object) {
+                if (object.hasOwnProperty(prop)) {
+                    if (object[prop] === value)
+                    return prop;
+                }
+            }
+        }
+
 function App() {
  //
- //  let fruits = ["apple", "orange", "kiwi"];
- //  let cities = ["bogota", "paris", "chicago"]
- //  let colors = ["yellow", "pink", "red", "blue"]
- //
- //  let s = fruits[Math.floor(Math.random()*fruits.length)]
+
+
+   const themes = {fruits: ["apple", "orange", "kiwi", "watermelon", "pineapple", "strawberry"],
+                  cities: ["bogota", "paris", "chicago", "lima", "Berlin", "Roma", "London", "Toronto"],
+                  colors: ["yellow", "pink", "red", "blue", "green", "Brown", "gray", "orange" ],
+                  animals: ["pig", "horse", "cow", "cocodrile", "bird", "monkey", "rabbit", "fox"]}
+   //}
+  let th = randomTheme(themes)
+  let s = th[Math.floor(Math.random()*th.length)]
+  let category = getKey(themes,th)
  //
  //  for (var i = 0; i < s.length; i++) {
  //    console.log(s.chartAt(i));
@@ -18,7 +36,7 @@ function App() {
   // var s = "overpopulation";
   // console.log(s[3]);
 
-  const palabra = "apple"
+  const palabra = s
   let length = palabra.length
   let secret = palabra.split("");
   const blanks = secret.map(
@@ -27,7 +45,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="hi"></h1>
+      <span>The category is: </span>
+      <span>{category}</span>
       <div className="blank-list">
         {blanks}
       </div>
