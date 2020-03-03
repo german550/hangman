@@ -2,8 +2,11 @@ import React from 'react';
 import './App.css';
 import LetterButton from './LetterButton'
 import Blank from "./Blank"
+import './Background.css';
+import Background from './Background.js'; 
 const zero= "/images/0.jpg"
 const one= "/images/1.jpg"
+
 
 
 
@@ -58,6 +61,7 @@ const row2Letters = ["N","O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "W", 
   
   return (
     <div className="App">
+      <Background />
       <img src={one}/>
       <p></p> 
       {row1Letters}
