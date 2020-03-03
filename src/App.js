@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import LetterButton from './LetterButton'
 const zero= "/images/0.jpg"
+const one= "/images/1.jpg"
 
 
 
@@ -16,10 +17,13 @@ function App() {
 
   return (
     <div className="App">
+      <img src={one}/>
+      <p></p> 
       {row1Letters}
       <p></p>
       {row2Letters}
-<img src={zero}/>
+      <p></p>
+
     </div>
   );
 }
