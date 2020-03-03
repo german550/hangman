@@ -4,3 +4,22 @@ button {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
     background-color: transparent;
 }
+button:hover {
+    color: grey;
+    font-size: 60px; 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+    background-color: blue;
+}
+
+button:focus {
+    color: grey;
+    font-size: 60px; 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+    background-color: blue;
+}
+button:visited {
+    color: grey;
+    font-size: 60px; 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+    background-color: blue;
+}

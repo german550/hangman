@@ -2,12 +2,24 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import LetterButton from './LetterButton'
+const zero= "/images/0.jpg"
+
+
 
 function App() {
+  const row1Letters = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"].map(
+    (letter) => <LetterButton letter={letter} />
+  )
+  const row2Letters = ["N","O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "W", "Z"].map(
+    (letter) => <LetterButton letter={letter} />
+  )
+
   return (
     <div className="App">
-
-      <LetterButton />
+      {row1Letters}
+      <p></p>
+      {row2Letters}
+<img src={zero}/>
     </div>
   );
 }
