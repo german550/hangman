@@ -3,6 +3,9 @@ import './App.css';
 import LetterButton from './LetterButton'
 import Blank from "./Blank"
 import {category, secret} from "./randomWords.js"
+import Background from "./Background"
+const zero= "/images/0.jpg"
+const one= "/images/1.jpg"
 
 //import MatchingBlanks from "./MatchingBlanks"
 const zero = "./images/0.jpg"
@@ -13,7 +16,6 @@ const four = "./images/4.jpg"
 const five = "./images/5.jpg"
 const six = "./images/6.jpg"
 const seven = "./images/7.jpg"
-
 
 function App() {
   let letters = secret.map(
@@ -46,8 +48,9 @@ function App() {
 
   return (
     <div className="App">
-      <img src={one}/>
-      <p></p>
+      <Background />
+      <img className="hang" src={zero}/>
+      <p></p> 
       {row1Letters}
       <p></p>
       {row2Letters}
