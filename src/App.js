@@ -2,9 +2,11 @@ import React, {useState} from 'react';
 import './App.css';
 import LetterButton from './LetterButton'
 import Blank from "./Blank"
+import './Background.css';
 import {newCategory, newSecret, themes} from "./randomWords.js"
 import Background from "./Background"
 import {pictures} from "./Images.js"
+
 
 
 function App() {
@@ -42,6 +44,7 @@ function App() {
 
   function checkLetter(letter){
 
+
     let letra = letter.toLowerCase()
     let letras = lettersObjects.slice()
       if (secret.includes(letra)){
@@ -75,8 +78,6 @@ function App() {
   return (
     <div className="App">
       <Background />
-      <img className="hang" src={zero}/>
-      <p></p>
 
       {row1Letters}
       <p></p>
