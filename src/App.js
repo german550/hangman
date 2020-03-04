@@ -2,12 +2,9 @@ import React from 'react';
 import './App.css';
 import LetterButton from './LetterButton'
 import Blank from "./Blank"
+import Background from "./Background"
 const zero= "/images/0.jpg"
 const one= "/images/1.jpg"
-
-
-
-
 
 
 function randomTheme(obj) {
@@ -58,7 +55,8 @@ const row2Letters = ["N","O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "W", 
   
   return (
     <div className="App">
-      <img src={one}/>
+      <Background />
+      <img className="hang" src={zero}/>
       <p></p> 
       {row1Letters}
       <p></p>
