@@ -4,8 +4,6 @@ import LetterButton from './LetterButton'
 import Blank from "./Blank"
 import {category, secret} from "./randomWords.js"
 import Background from "./Background"
-const zero= "/images/0.jpg"
-const one= "/images/1.jpg"
 
 //import MatchingBlanks from "./MatchingBlanks"
 const zero = "./images/0.jpg"
