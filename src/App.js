@@ -9,22 +9,23 @@ import {pictures} from "./Images.js"
 
 function App() {
   let letters = secret.map(
-    (letter) => ({letter: letter, show: false})
-  )
+    (letter) => ({letter: letter, show: false}))
   const [lettersObjects, setLetterObjects] = useState(letters)
   const [count, setCount] = useState(0)
   const row1Letters = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"].map(
-    (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)} />
-  )
+    (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)} />)
   const row2Letters = ["N","O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "W", "Z"].map(
     (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)} />)
-
   const blanks = lettersObjects.map(
-    (ob, i) => <Blank key={i} secret={ob.letter} showMe={ob.show} />
-  )
+    (ob, i) => <Blank key={i} secret={ob.letter} showMe={ob.show} />)
 
   function increment() {
-    setCount( count + 1)
+    if(count < 8){
+      setCount( count + 1)
+    }else if (count == 8){
+      App()
+    }
+
   }
   function checkLetter(letter){
     let letra = letter.toLowerCase()

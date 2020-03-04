@@ -7,7 +7,7 @@ import React, {useState} from 'react';
     const five = "./images/5.jpg"
     const six = "./images/6.jpg"
     const seven = "./images/7.jpg"
-    const eight = "./images/8.jpg"
+    const eight = "./images/8.jpeg"
     const pictures = [zero, one, two, three,four, five, six, seven, eight]
    
        
