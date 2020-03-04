@@ -56,7 +56,7 @@ const row2Letters = ["N","O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "W", 
   return (
     <div className="App">
       <Background />
-      <img src={one}/>
+      <img className="hang" src={zero}/>
       <p></p> 
       {row1Letters}
       <p></p>
