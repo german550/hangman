@@ -2,10 +2,18 @@ import React, {useState} from 'react';
 import './App.css';
 import LetterButton from './LetterButton'
 import Blank from "./Blank"
-//import MatchingBlanks from "./MatchingBlanks"
-import zero from "./images/0.jpg"
-import one from "./images/1.jpg"
 import {category, secret} from "./randomWords.js"
+
+//import MatchingBlanks from "./MatchingBlanks"
+const zero = "./images/0.jpg"
+const one = "./images/1.jpg"
+const two = "./images/2.jpg"
+const three = "./images/3.jpg"
+const four = "./images/4.jpg"
+const five = "./images/5.jpg"
+const six = "./images/6.jpg"
+const seven = "./images/7.jpg"
+
 
 function App() {
   let letters = secret.map(
@@ -16,10 +24,14 @@ function App() {
   function checkLetter(letter){
     let letra = letter.toLowerCase()
     let letras = lettersObjects.slice()
-    setLetterObjects(letras.map(
-        (ob) => letra === ob.letter ? {letter: letra, show: true} : ob
-      )
-    )
+      if (secret.includes(letra)){
+        setLetterObjects(letras.map(
+            (ob) => letra === ob.letter ? {letter: letra, show: true} : ob
+          )
+        )
+      } else {
+        console.log (2)
+      }
   }
 
   const row1Letters = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"].map(
