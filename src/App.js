@@ -6,27 +6,22 @@ import {newCategory, newSecret, themes} from "./randomWords.js"
 import Background from "./Background"
 import {pictures} from "./Images.js"
 
-
 function App() {
   const [theme, setTheme] = useState(newCategory(themes))
   const [secret, setSecret] = useState(newSecret(themes[theme]))
+  const [clear, setClear] = useState(false)
   let letters = secret.map(
     (letter) => ({letter: letter, show: false}))
   const [lettersObjects, setLetterObjects] = useState(letters)
   const [count, setCount] = useState(0)
   const row1Letters = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"].map(
-    (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)} />)
+    (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)}clear={clear} count={count}/>)
   const row2Letters = ["N","O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "W", "Z"].map(
-    (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)} />)
+    (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)} clear={clear} count={count}/>)
   const blanks = lettersObjects.map(
     (ob, i) => <Blank key={i} secret={ob.letter} showMe={ob.show} />)
 
-  function increment() {
-    if(count < 8){
-      setCount( count + 1)
-    }else if (count == 8){
-      App()
-    }
+ 
 
   function newGame() {
     setTheme(newCategory(themes))
@@ -35,11 +30,18 @@ function App() {
       (letter) => ({letter: letter, show: false})
     )
     setLetterObjects(letters)
+    setCount(0)
+    setClear(true)
   }
 
-
-
-
+  function increment() {
+    if(count < 8){
+      setCount( count + 1)
+      setClear(false)
+    }else if (count == 8){
+      newGame()
+    }
+  }
   function checkLetter(letter){
 
     let letra = letter.toLowerCase()
@@ -60,22 +62,10 @@ function App() {
       }
   }
 
-
-
-  const row1Letters = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"].map(
-    (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)} />
-  )
-  const row2Letters = ["N","O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "W", "Z"].map(
-    (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)} />)
-
-  const blanks = () => lettersObjects.map(
-    (ob, i) => <Blank key={i} secret={ob.letter} showMe={ob.show} />
-  )
-
   return (
     <div className="App">
       <Background />
-      <img className="hang" src={zero}/>
+      <img className="hang" src={pictures[count]}/>
       <p></p>
 
       {row1Letters}
@@ -86,7 +76,7 @@ function App() {
       <span>The category is: </span>
       <span>{theme}</span>
       <div className="blank-list">
-        {blanks()}
+        {blanks}
       </div>
 
     </div>
