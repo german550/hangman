@@ -1,77 +1,93 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import LetterButton from './LetterButton'
 import Blank from "./Blank"
 import './Background.css';
-import Background from './Background.js'; 
-const zero= "/images/0.jpg"
-const one= "/images/1.jpg"
+import {newCategory, newSecret, themes} from "./randomWords.js"
+import Background from "./Background"
+import {pictures} from "./Images.js"
 
 
-
-
-
-
-
-function randomTheme(obj) {
-    var keys = Object.keys(obj)
-    return obj[keys[ keys.length * Math.random() << 0]];
-};
-
-function getKey(object, value) {
-            for (var prop in object) {
-                if (object.hasOwnProperty(prop)) {
-                    if (object[prop] === value)
-                    return prop;
-                }
-            }
-        }
 
 function App() {
- //
+  const [theme, setTheme] = useState(newCategory(themes))
+  const [secret, setSecret] = useState(newSecret(themes[theme]))
+  let letters = secret.map(
+    (letter) => ({letter: letter, show: false}))
+  const [lettersObjects, setLetterObjects] = useState(letters)
+  const [count, setCount] = useState(0)
+  const row1Letters = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"].map(
+    (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)} />)
+  const row2Letters = ["N","O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "W", "Z"].map(
+    (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)} />)
+  const blanks = lettersObjects.map(
+    (ob, i) => <Blank key={i} secret={ob.letter} showMe={ob.show} />)
 
-const row1Letters = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"].map(
-  (letter) => <LetterButton letter={letter} />
-)
-const row2Letters = ["N","O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "W", "Z"].map(
-  (letter) => <LetterButton letter={letter} />)
+  function increment() {
+    if(count < 8){
+      setCount( count + 1)
+    }else if (count == 8){
+      App()
+    }
 
-   const themes = {fruits: ["apple", "orange", "kiwi", "watermelon", "pineapple", "strawberry"],
-                  cities: ["bogota", "paris", "chicago", "lima", "Berlin", "Roma", "London", "Toronto"],
-                  colors: ["yellow", "pink", "red", "blue", "green", "Brown", "gray", "orange" ],
-                  animals: ["pig", "horse", "cow", "cocodrile", "bird", "monkey", "rabbit", "fox"]}
-   //}
-  let th = randomTheme(themes)
-  let s = th[Math.floor(Math.random()*th.length)]
-  let category = getKey(themes,th)
- //
- //  for (var i = 0; i < s.length; i++) {
- //    console.log(s.chartAt(i));
- //  }
- // if s === 0
-  // var s = "overpopulation";
-  // console.log(s[3]);
+  function newGame() {
+    setTheme(newCategory(themes))
+    setSecret(newSecret(themes[theme]))
+    let letters = secret.map(
+      (letter) => ({letter: letter, show: false})
+    )
+    setLetterObjects(letters)
+  }
 
-  const palabra = s
-  let length = palabra.length
-  let secret = palabra.split("");
-  const blanks = secret.map(
-    (letter, i) => <Blank key={i} secret={letter} showMe={false} />
+
+
+
+  function checkLetter(letter){
+
+
+    let letra = letter.toLowerCase()
+    let letras = lettersObjects.slice()
+      if (secret.includes(letra)){
+        setLetterObjects(letras.map(
+            function(ob) {
+              if (letra == ob.letter) {
+                  return {letter: letra, show: true}
+              }else {
+                return ob
+              }
+            }
+          )
+        )
+      } else{
+        increment()
+      }
+  }
+
+
+
+  const row1Letters = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"].map(
+    (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)} />
   )
-  
+  const row2Letters = ["N","O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "W", "Z"].map(
+    (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)} />)
+
+  const blanks = () => lettersObjects.map(
+    (ob, i) => <Blank key={i} secret={ob.letter} showMe={ob.show} />
+  )
+
   return (
     <div className="App">
       <Background />
-      <img src={one}/>
-      <p></p> 
+
       {row1Letters}
       <p></p>
       {row2Letters}
+        <button onClick={()=> newGame()}>New Game</button>
       <p></p>
       <span>The category is: </span>
-      <span>{category}</span>
+      <span>{theme}</span>
       <div className="blank-list">
-        {blanks}
+        {blanks()}
       </div>
 
     </div>
