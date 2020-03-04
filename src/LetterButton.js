@@ -11,6 +11,7 @@ export default function LetterButton(props){
 
     return (
     <button className={clicked ? "clicked" : ""} onClick={() => clickIt() }>{props.letter}</button>
-    
+
+
     )
 }
