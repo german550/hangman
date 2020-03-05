@@ -11,28 +11,37 @@ function App() {
   const [theme, setTheme] = useState(newCategory(themes))
   const [secret, setSecret] = useState(newSecret(themes[theme]))
   const [clear, setClear] = useState(false)
+
   let letters = secret.map(
     (letter) => ({letter: letter, show: false}))
   const [lettersObjects, setLetterObjects] = useState(letters)
   const [count, setCount] = useState(0)
+
   const row1Letters = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"].map(
     (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)}clear={clear} count={count}/>)
+
   const row2Letters = ["N","O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "W", "Z"].map(
     (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)} clear={clear} count={count}/>)
+
   const blanks = lettersObjects.map(
     (ob, i) => <Blank key={i} secret={ob.letter} showMe={ob.show} />)
+    console.log(secret)
 
- 
+
 
   function newGame() {
-    setTheme(newCategory(themes))
-    setSecret(newSecret(themes[theme]))
-    let letters = secret.map(
+    let categoryCambio = newCategory(themes)
+    setTheme(categoryCambio)
+    let secretCambio = newSecret(themes[categoryCambio])
+    setSecret(secretCambio)
+
+    let letters = secretCambio.map(
       (letter) => ({letter: letter, show: false})
     )
     setLetterObjects(letters)
     setCount(0)
     setClear(true)
+    console.log(secret);
   }
 
   function increment() {

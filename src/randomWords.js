@@ -14,7 +14,7 @@ function getKey(object, value) {
 
 
 const themes = {fruits: ["apple", "orange", "kiwi", "watermelon", "pineapple", "strawberry"],
-              cities: ["bogota", "paris", "chicago", "lima", "Berlin", "Roma", "london", "toronto"],
+              cities: ["bogota", "paris", "chicago", "lima", "berlin", "roma", "london", "toronto"],
               colors: ["yellow", "pink", "red", "blue", "green", "Brown", "gray", "orange" ],
               animals: ["pig", "horse", "cow", "cocodrile", "bird", "monkey", "rabbit", "fox"]}
 
