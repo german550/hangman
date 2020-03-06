@@ -6,7 +6,8 @@ import './Background.scss';
 import {newCategory, newSecret, themes} from "./randomWords.js"
 import Background from "./Background"
 import {pictures} from "./Images.js"
-import soundfile from './Secret-Pocketbook.mp3'
+import soundfile from './Thegoodthebadandtheugly.mp3'
+import Winner from './Winner.js'
 import Category from "./Category.js"
 import Fireworks from "./Fireworks.js"
 
@@ -19,6 +20,11 @@ function App() {
     (letter) => ({letter: letter, show: false}))
   const [lettersObjects, setLetterObjects] = useState(letters)
   const [count, setCount] = useState(0)
+
+  if(letters.every((letra)=> letra.show)){
+    alert("YOU WIN!")
+    //  document.getElementById("winner").style.display = "block";
+  }
 
   const row1Letters = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"].map(
     (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)}clear={clear} count={count}/>)
@@ -55,8 +61,6 @@ function App() {
     }
   }
   function checkLetter(letter){
-
-
     let letra = letter.toLowerCase()
     let letras = lettersObjects.slice()
       if (secret.includes(letra)){
@@ -64,6 +68,7 @@ function App() {
             function(ob) {
               if (letra == ob.letter) {
                   return {letter: letra, show: true}
+                    
               }else {
                 return ob
               }
@@ -73,17 +78,22 @@ function App() {
       } else{
         increment()
       }
+      
   }
+
+  
+    
+
+  
 var audio = new Audio(soundfile)
 console.log(audio.play())
   return (
-
     <div className="App">
       <Background />
+      <Winner />
       <img className="hang" src={pictures[count]}/>
       <p></p>
       <Fireworks/>
-
       {row1Letters}
       <p></p>
       {row2Letters}
@@ -98,6 +108,6 @@ console.log(audio.play())
       
     </div>
   );
-  }
-
+  
+}
 export default App;
