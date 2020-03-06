@@ -1,19 +1,21 @@
 button {
-    color: black; 
-    font-size: 60px; 
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+    color: black;
+    font-size: 60px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: transparent;
+    border-radius: 25px;
+    margin-right: 4px;
 }
 button:hover, .clicked {
     color: grey;
-    font-size: 60px; 
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+    font-size: 60px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: blue;
 }
 
 button:focus {
     color: grey;
-    font-size: 60px; 
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+    font-size: 60px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: blue;
 }

@@ -2,78 +2,95 @@ import React, {useState} from 'react';
 import './App.css';
 import LetterButton from './LetterButton'
 import Blank from "./Blank"
-import {category, secret} from "./randomWords.js"
+import './Background.scss';
+import {newCategory, newSecret, themes} from "./randomWords.js"
 import Background from "./Background"
-
-//import MatchingBlanks from "./MatchingBlanks"
-const zero = "./images/0.jpg"
-const one = "./images/1.jpg"
-const two = "./images/2.jpg"
-const three = "./images/3.jpg"
-const four = "./images/4.jpg"
-const five = "./images/5.jpg"
-const six = "./images/6.jpg"
-const seven = "./images/7.jpg"
+import {pictures} from "./Images.js"
+import soundfile from './Secret-Pocketbook.mp3'
+import Category from "./Category.js"
+import Fireworks from "./Fireworks.js"
 
 function App() {
-  let letters = secret.map(
-    (letter) => ({letter: letter, show: false})
-  )
-  const [lettersObjects, setLetterObjects] = useState(letters)
+  const [theme, setTheme] = useState(newCategory(themes))
+  const [secret, setSecret] = useState(newSecret(themes[theme]))
+  const [clear, setClear] = useState(false)
 
+  let letters = secret.map(
+    (letter) => ({letter: letter, show: false}))
+  const [lettersObjects, setLetterObjects] = useState(letters)
+  const [count, setCount] = useState(0)
+
+  const row1Letters = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"].map(
+    (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)}clear={clear} count={count}/>)
+
+  const row2Letters = ["N","O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "W", "Z"].map(
+    (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)} clear={clear} count={count}/>)
+
+  const blanks = lettersObjects.map(
+    (ob, i) => <Blank key={i} secret={ob.letter} showMe={ob.show} />)
+    console.log(secret)
+
+
+  function newGame() {
+    let categoryCambio = newCategory(themes)
+    setTheme(categoryCambio)
+    let secretCambio = newSecret(themes[categoryCambio])
+    setSecret(secretCambio)
+
+    let letters = secretCambio.map(
+      (letter) => ({letter: letter, show: false})
+    )
+    setLetterObjects(letters)
+    setCount(0)
+    setClear(true)
+    console.log(secret);
+  }
+
+  function increment() {
+    if(count < 8){
+      setCount( count + 1)
+      setClear(false)
+    }else if (count == 8){
+      newGame()
+    }
+  }
   function checkLetter(letter){
+
+
     let letra = letter.toLowerCase()
     let letras = lettersObjects.slice()
       if (secret.includes(letra)){
         setLetterObjects(letras.map(
-            (ob) => letra === ob.letter ? {letter: letra, show: true} : ob
+            function(ob) {
+              if (letra == ob.letter) {
+                  return {letter: letra, show: true}
+              }else {
+                return ob
+              }
+            }
           )
         )
-      } else {
-        console.log (2)
+      } else{
+        increment()
       }
   }
-
-  const row1Letters = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"].map(
-    (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)} />
-  )
-  const row2Letters = ["N","O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "W", "Z"].map(
-    (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)} />)
-
-  const blanks = lettersObjects.map(
-    (ob, i) => <Blank key={i} secret={ob.letter} showMe={ob.show} />
-  )
-
+var audio = new Audio(soundfile)
+console.log(audio.play())
   return (
+
     <div className="App">
       <Background />
-      <img className="hang" src={zero}/>
-      <p></p> 
+      <img className="hang" src={pictures[count]}/>
+      <p></p>
+      <Fireworks/>
+
       {row1Letters}
       <p></p>
       {row2Letters}
+        <button onClick={()=> newGame()}>New Game</button>
       <p></p>
-
-      <div className="main-div">
-       <div className="category1">T</div>
-       <div className="category2">h</div>
-       <div className="category3">e</div>
-       <div className="category4">_</div>
-       <div className="category2">C</div>
-       <div className="category1">a</div>
-       <div className="category3">T</div>
-       <div className="category2">e</div>
-       <div className="category3">g</div>
-       <div className="category1">o</div>
-       <div className="category2">r</div>
-       <div className="category3">y</div>
-       <div className="category4">_</div>
-       <div className="category3">I</div>
-       <div className="category1">s</div>
-       <div className="category2">:</div>
-       <div className="category1"> </div>
-       {category}
-       </div>
+      <Category/>
+      {theme}
 
       <div className="blank-list">
         {blanks}
