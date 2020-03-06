@@ -6,6 +6,13 @@ import './Background.css';
 import {newCategory, newSecret, themes} from "./randomWords.js"
 import Background from "./Background"
 import {pictures} from "./Images.js"
+// import Mus from "./music.js"
+import soundfile from './Secret-Pocketbook.mp3'
+
+
+
+
+
 
 function App() {
   const [theme, setTheme] = useState(newCategory(themes))
@@ -26,7 +33,6 @@ function App() {
   const blanks = lettersObjects.map(
     (ob, i) => <Blank key={i} secret={ob.letter} showMe={ob.show} />)
     console.log(secret)
-
 
 
   function newGame() {
@@ -72,11 +78,11 @@ function App() {
         increment()
       }
   }
-
+var audio = new Audio(soundfile)
+audio.play()
   return (
     <div className="App">
       <Background />
-
       <img className="hang" src={pictures[count]}/>
       <p></p>
 

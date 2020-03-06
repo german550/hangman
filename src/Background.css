@@ -2,26 +2,26 @@ body {
 	background-color: #00bfff;
 	height: 100%;
 	overflow: hidden;
-	
+
 	  animation-name: sky;
 	  animation-duration: 10s;
-	
+
 	  animation-iteration-count: infinite;
 	  z-index: -1;
   }
 
-  
-  
+
+
   @keyframes sky {
-	  
+
 	  0%   {background-color:#00bfff;}
 	  50%  {background-color:#ff5000;}
 	  75%  {background-color:#00345b;}
 	  100% {background-color:#001321;}
   }
-  
+
   @keyframes moveSun {
-	  
+
 	  0%   {
 	  transform: translate(-50px, -100px);}
 	  25%  {
@@ -31,7 +31,7 @@ body {
 	  100%  {
 	  transform: translate(150px, 400px);}
   }
-  
+
   .sun {
 	background-color: #fff600;
 	height: 100px;
@@ -41,10 +41,10 @@ body {
 	top: 20px;
 	right: 100px;
 	border: 20px solid #fffbb2;
-	
+
 	  animation-name: shine, moveSun;
 	  animation-duration: 1s, 20s;
-	
+
 	  animation-iteration-count: infinite;
 	  animation-direction: alternate, normal;
   }
@@ -59,7 +59,7 @@ body {
 	top: 310px;
 	left: 100px;
   }
-  
+
   .coyote {
 	position: absolute;
 	width: 200px;
@@ -67,7 +67,7 @@ body {
 	left: 80%;
 	background-color: transparent;
   }
-  
+
   .sand {
 	height: 600px;
 	width: 1000px;
@@ -84,9 +84,9 @@ body {
   }
   .middle{
 	left: 24%;
-	
+
   }
-  
+
   .sand-inner {
 	border-radius: inherit;
 	background-color: #ffae00;
@@ -101,19 +101,19 @@ body {
 	width: 100px;
 	top: 88%;
 	left: -10%;
-	
+
 	  animation-name: move, rotateB;
 	  animation-duration: 10s, 1s;
 	  animation-iteration-count: infinite;
 	animation-timing-function: linear;
   }
-  
+
   .bush2 {
 	position: absolute;
 	width: 100px;
 	top: 88%;
 	left: -10%;
-	
+
 	  animation-name: move, rotateB;
 	  animation-duration: 20s, 1s;
 	  animation-iteration-count: infinite;
@@ -124,14 +124,14 @@ body {
 	width: 100px;
 	top: 88%;
 	left: -10%;
-	
+
 	  animation-name: move, rotateB;
 	  animation-duration: 30s, 1s;
 	  animation-iteration-count: infinite;
 	animation-timing-function: linear;
   }
-  
-  
+
+
   @keyframes move {
 	  from {left: -10%;}
 	  to {left: 100%;}
@@ -142,7 +142,7 @@ body {
 	  100% {transform: rotate(360deg);}
   }
 
-  
+
 
 
 #background-wrap {
@@ -190,7 +190,7 @@ body {
 	-webkit-animation: animateCloud 35s linear infinite;
 	-moz-animation: animateCloud 35s linear infinite;
 	animation: animateCloud 35s linear infinite;
-	
+
 	-webkit-transform: scale(0.65);
 	-moz-transform: scale(0.65);
 	transform: scale(0.65);
@@ -200,7 +200,7 @@ body {
 	-webkit-animation: animateCloud 20s linear infinite;
 	-moz-animation: animateCloud 20s linear infinite;
 	animation: animateCloud 20s linear infinite;
-	
+
 	-webkit-transform: scale(0.3);
 	-moz-transform: scale(0.3);
 	transform: scale(0.3);
@@ -210,7 +210,7 @@ body {
 	-webkit-animation: animateCloud 30s linear infinite;
 	-moz-animation: animateCloud 30s linear infinite;
 	animation: animateCloud 30s linear infinite;
-	
+
 	-webkit-transform: scale(0.5);
 	-moz-transform: scale(0.5);
 	transform: scale(0.5);
@@ -220,7 +220,7 @@ body {
 	-webkit-animation: animateCloud 18s linear infinite;
 	-moz-animation: animateCloud 18s linear infinite;
 	animation: animateCloud 18s linear infinite;
-	
+
 	-webkit-transform: scale(0.4);
 	-moz-transform: scale(0.4);
 	transform: scale(0.4);
@@ -230,7 +230,7 @@ body {
 	-webkit-animation: animateCloud 25s linear infinite;
 	-moz-animation: animateCloud 25s linear infinite;
 	animation: animateCloud 25s linear infinite;
-	
+
 	-webkit-transform: scale(0.55);
 	-moz-transform: scale(0.55);
 	transform: scale(0.55);
@@ -247,11 +247,11 @@ body {
 	background: -ms-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
 	background: linear-gradient(top,  #fff 5%,#f1f1f1 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#f1f1f1',GradientType=0 );
-	
+
 	-webkit-border-radius: 100px;
 	-moz-border-radius: 100px;
 	border-radius: 100px;
-	
+
 	-webkit-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
 	box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
