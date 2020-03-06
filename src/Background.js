@@ -2,9 +2,11 @@ import React from 'react';
 import './Background.scss';
 import { render } from '@testing-library/react';
 
+
 export default function Background(props){
-    
+   
         return(
+            
             <div>
                 <div class="sun"></div>
                 <div class="moon"></div>

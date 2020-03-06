@@ -6,12 +6,14 @@ import './Background.scss';
 import {newCategory, newSecret, themes} from "./randomWords.js"
 import Background from "./Background"
 import {pictures} from "./Images.js"
-import soundfile from './Thegoodthebadandtheugly.mp3'
 import Winner from './Winner.js'
 import Category from "./Category.js"
 import Fireworks from "./Fireworks.js"
+import soundfile from './Thegoodthebadandtheugly.mp3'
+
 
 function App() {
+  
   const [theme, setTheme] = useState(newCategory(themes))
   const [secret, setSecret] = useState(newSecret(themes[theme]))
   const [clear, setClear] = useState(false)
@@ -35,6 +37,8 @@ function App() {
   const blanks = lettersObjects.map(
     (ob, i) => <Blank key={i} secret={ob.letter} showMe={ob.show} />)
     console.log(secret)
+
+
 
 
   function newGame() {
@@ -80,15 +84,14 @@ function App() {
       }
       
   }
-
+    
+  var audio = new Audio(soundfile)
+  audio.play()
   
     
-
-  
-var audio = new Audio(soundfile)
-console.log(audio.play())
   return (
     <div className="App">
+        
       <Background />
       <Winner />
       <img className="hang" src={pictures[count]}/>
