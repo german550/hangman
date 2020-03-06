@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import './LetterButton.css'
+import './LetterButton.scss'
 
 export default function LetterButton(props){
     const [clicked, setClicked] = useState(false);

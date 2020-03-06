@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.hang{
+  background-color: transparent ;
+}
+div.main-div {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+  display: inline-block;
+  width: 100vw;
+}
+.main-div div{
+  display: inline-block;
+}
+.category1 {
+  color: darkviolet;
+  animation: swag 5s cubic-bezier(0.575, -1.000, 0.900, 1.000) infinite 0.4s;
+  }
+
+.category2 {
+  color: cyan;
+  animation: swag 5.4s cubic-bezier(0.6, -1.000, 0.98, 1.000) infinite 0.3s;
+}
+
+.category3 {
+  color: chartreuse;
+  animation: swag 2s cubic-bezier(0.6, -1.000, 0.735, 1.000) infinite 0.8s;
+}
+
+.category4 {
+  color: transparent;
+  animation: swag 2s cubic-bezier(0.68, -1.000, 0.265, 1.000) infinite 0.2s;
+}
+  
+@-moz-keyframes swag {
+  form {
+      -moz-transform: rotate(0deg);
+  }
+  to {
+      -moz-transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes swag {
+  form {
+      -o-transform: rotate(30deg);
+  }
+  to {
+      -o-transform: rotate(360deg);
+  }
+}
+@keyframes swag {
+  form {
+      transform: rotate(170deg);
+  }
+  to {
+      transform: rotate(-30deg);
+  }
+}

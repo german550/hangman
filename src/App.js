@@ -2,12 +2,13 @@ import React, {useState} from 'react';
 import './App.css';
 import LetterButton from './LetterButton'
 import Blank from "./Blank"
-import './Background.css';
+import './Background.scss';
 import {newCategory, newSecret, themes} from "./randomWords.js"
 import Background from "./Background"
 import {pictures} from "./Images.js"
-// import Mus from "./music.js"
 import soundfile from './Secret-Pocketbook.mp3'
+import Category from "./Category.js"
+import Fireworks from "./Fireworks.js"
 
 function App() {
   const [theme, setTheme] = useState(newCategory(themes))
@@ -81,19 +82,20 @@ console.log(audio.play())
       <Background />
       <img className="hang" src={pictures[count]}/>
       <p></p>
-
+      <Fireworks/>
 
       {row1Letters}
       <p></p>
       {row2Letters}
         <button onClick={()=> newGame()}>New Game</button>
       <p></p>
-      <span>The category is: </span>
-      <span>{theme}</span>
+      <Category/>
+      {theme}
+
       <div className="blank-list">
         {blanks}
       </div>
-
+      
     </div>
   );
   }
