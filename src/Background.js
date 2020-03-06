@@ -7,6 +7,7 @@ export default function Background(props){
         return(
             <div>
                 <div class="sun"></div>
+                <div class="moon"></div>
                 <img class = "cactus" src = "https://www.freeiconspng.com/uploads/cactus-transparent-clipart-png-18.png"></img>
                 <div class = "sand first">
                     <div class = "sand-inner"></div>

@@ -440,11 +440,11 @@ body {
 @keyframes moveMoon {
 	  
 	0%   {
-	transform: translate(-59px,750px);}
-	50%  {
-	transform: translate(-200px, -200px);}
+	transform: translate(50px, 1500px);}
+	60%  {
+	transform: translate(50px, 1500px);}	
 	100%  {
-	transform: translate(-59px,750px);}
+	transform: translate(50px, 50px);}
 }
 
 .moon {
@@ -469,6 +469,7 @@ $particles: 50;
 $width: 500;
 $height: 500;
 
+
 // Create the explosion...
 $box-shadow: ();
 $box-shadow2: ();
@@ -476,7 +477,8 @@ $box-shadow2: ();
   $box-shadow: $box-shadow,
                random($width)-$width / 2 + px
                random($height)-$height / 1.2 + px
-               hsl(random(360), 100, 50);
+			   hsl(random(360), 100, 50);
+			   
   $box-shadow2: $box-shadow2, 0 0 #fff
 }
 @mixin keyframes ($animationName) {
@@ -538,6 +540,7 @@ body {
   padding:0;
   background: #000;
   overflow: hidden;
+  z-index: -1;
 }
 
 .pyro > .before, .pyro > .after {
@@ -552,7 +555,8 @@ body {
     
 .pyro > .after {
   @include animation-delay((1.25s, 1.25s, 1.25s));
-  @include animation-duration((1.25s, 1.25s, 6.25s));
+  @include animation-duration((2.25s, 2.25s, 6.25s));
+  
 }
         
 @include keyframes(bang) {
@@ -570,23 +574,23 @@ body {
     
 @include keyframes(position) {
   0%, 19.9% {
-    margin-top: 10%;
-    margin-left: 40%;
+    margin-top: -20%;
+    margin-left: 20%;
   }
   20%, 39.9% {
-    margin-top: 40%;
+    margin-top: -20%;
     margin-left: 30%;
   }
   40%, 59.9% {  
-    margin-top: 20%;
+    margin-top: -20%;
     margin-left: 70%
   }
   60%, 79.9% {  
-    margin-top: 30%;
+    margin-top: -20%;
     margin-left: 20%;
   }
   80%, 99.9% {  
-    margin-top: 30%;
+    margin-top: -20%;
     margin-left: 80%;
   }
 }

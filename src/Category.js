@@ -24,7 +24,8 @@ export default function Category(props){
        <div className="category1">s</div>
        <div className="category2">:</div>
        <div className="category1"> </div>
-     {themes.props}
+       {themes.props}
+       
        </div>
    )
 }
