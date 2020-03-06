@@ -1,7 +1,7 @@
 import React from 'react';
 import './Background.scss';
 
-export default function Category({props}){
+export default function Fireworks({props}){
     
     return(
 

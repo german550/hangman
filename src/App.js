@@ -5,11 +5,11 @@ import Blank from "./Blank"
 import './Background.scss';
 import {newCategory, newSecret, themes} from "./randomWords.js"
 import Background from "./Background"
-import {pictures} from "./Images.js"
+import {pictures, win} from "./Images.js"
 import Winner from './Winner.js'
 import Category from "./Category.js"
 import Fireworks from "./Fireworks.js"
-import soundfile from './Thegoodthebadandtheugly.mp3'
+
 
 
 function App() {
@@ -23,9 +23,11 @@ function App() {
   const [lettersObjects, setLetterObjects] = useState(letters)
   const [count, setCount] = useState(0)
 
-  if(letters.every((letra)=> letra.show)){
-    alert("YOU WIN!")
-    //  document.getElementById("winner").style.display = "block";
+  let fireworks = null
+  let win = null
+  if(lettersObjects.every((letra)=> letra.show)){
+    fireworks = <Fireworks />
+    win = <Winner />
   }
 
   const row1Letters = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"].map(
@@ -33,6 +35,7 @@ function App() {
 
   const row2Letters = ["N","O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "W", "Z"].map(
     (letter) => <LetterButton letter={letter} checkLetter={() => checkLetter(letter)} clear={clear} count={count}/>)
+
 
   const blanks = lettersObjects.map(
     (ob, i) => <Blank key={i} secret={ob.letter} showMe={ob.show} />)
@@ -85,18 +88,17 @@ function App() {
       
   }
     
-  var audio = new Audio(soundfile)
-  audio.play()
+ 
   
     
   return (
     <div className="App">
-        
+      
       <Background />
-      <Winner />
+      {win}
       <img className="hang" src={pictures[count]}/>
       <p></p>
-      <Fireworks/>
+      {fireworks}
       {row1Letters}
       <p></p>
       {row2Letters}
