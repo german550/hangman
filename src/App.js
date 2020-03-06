@@ -9,11 +9,6 @@ import {pictures} from "./Images.js"
 // import Mus from "./music.js"
 import soundfile from './Secret-Pocketbook.mp3'
 
-
-
-
-
-
 function App() {
   const [theme, setTheme] = useState(newCategory(themes))
   const [secret, setSecret] = useState(newSecret(themes[theme]))
@@ -79,8 +74,9 @@ function App() {
       }
   }
 var audio = new Audio(soundfile)
-audio.play()
+console.log(audio.play())
   return (
+
     <div className="App">
       <Background />
       <img className="hang" src={pictures[count]}/>
