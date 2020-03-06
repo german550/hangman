@@ -7,6 +7,11 @@ export default function Background(props){
         return(
             <div>
                 <div class="sun"></div>
+                <div class="pyro">
+                    <div class="before"></div>
+                    <div class="after"></div>
+                </div>
+                <div class="moon"></div>
                 <img class = "cactus" src = "https://www.freeiconspng.com/uploads/cactus-transparent-clipart-png-18.png"></img>
                 <div class = "sand first">
                     <div class = "sand-inner"></div>
@@ -22,7 +27,7 @@ export default function Background(props){
                 <img class = "bush3" src="https://lh5.ggpht.com/SmI3FDZzhzV2uj9Of1MlbcdW5phOie9bzQ5TZ-YxfstqVwoeoxOku67F2n4kvdsX9U_y9Nb8D4JLcW1QJI_9EpM=s400"></img>
                 <img class = "coyote" src="https://img.cartoongoodies.com/wp-content/uploads/2019/11/04221251/Wile-E.-Coyote-853x1024.png"></img>
             
-            
+                    
                 <div id="background-wrap">
                     <div class="x1">
                         <div class="cloud"></div>
@@ -45,7 +50,7 @@ export default function Background(props){
                     </div>
                
                     <div class="container">
-	
+                        
                         <div class="bird-container bird-container--one">
                             <div class="bird bird--one"></div>
                         </div>
