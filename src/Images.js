@@ -8,6 +8,7 @@ import React, {useState} from 'react';
     const six = "./images/6.png"
     const seven = "./images/7.png"
     const eight = "./images/8.png"
+    const win = "./images/YouWin.png"
     const pictures = [zero, one, two, three,four, five, six, seven, eight]
    
        
@@ -16,4 +17,4 @@ import React, {useState} from 'react';
 
 
 
-export {pictures}
+export {pictures, win}

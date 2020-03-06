@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import soundfile from './Thegoodthebadandtheugly.mp3'
+var audio = new Audio(soundfile)
+audio.volume = 0.2
+window.onload = audio.play()
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

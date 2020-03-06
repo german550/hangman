@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import './LetterButton.scss'
 import mp3File from './my-sounds/beep.mp3'
+import Fireworks from "./Fireworks.js"
 
 export default function LetterButton(props){
     const [clicked, setClicked] = useState(false);
@@ -23,5 +24,6 @@ export default function LetterButton(props){
 
     return (
     <button className={clicked ? "clicked" : ""} onClick={() => clickIt()}>{props.letter}</button>
+  
     )
 }

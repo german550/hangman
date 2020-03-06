@@ -1,11 +1,12 @@
 import React from "react"
-import Win from "./Win.css"
+import "./Win.css"
+import {win} from "./Images.js"
 
 function Winner(){
 
     return(
         <div className = "winner">
-            <h1>YOU WIN!</h1>
+            <img src={win}/>
         </div>
     )
 
